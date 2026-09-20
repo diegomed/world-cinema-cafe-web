@@ -1,12 +1,19 @@
 <script lang="ts">
-	import { monthlyFeature as f } from '$lib/data/feature';
+	import { films } from '$lib/data/films';
+	import { getFeaturedFilm } from '$lib/data/featured-film';
 	import TrailerPlayer from './TrailerPlayer.svelte';
+
+	// `today` is injectable so component tests can pin the date without
+	// relying on the system clock; production always uses the real time.
+	let { today }: { today?: Date } = $props();
+
+	const f = $derived(getFeaturedFilm(films, today ?? new Date()));
 </script>
 
-<section id="feature" class="bg-wcc-charcoal px-6 py-24">
+<section id="feature" class="bg-wcc-ink px-6 py-24">
 	<div class="mx-auto max-w-5xl">
 		<p class="mb-8 text-center text-xs tracking-[0.4em] text-wcc-gold uppercase sm:text-left">
-			This Month at WCC
+			Coming Next
 		</p>
 		<div class="grid gap-12 md:grid-cols-2 md:items-start">
 			<div>
@@ -27,18 +34,20 @@
 					</div>
 				</dl>
 
-				<div class="mt-8 rounded-lg border border-wcc-gold-dim/30 bg-wcc-ink/40 p-5">
+				<div class="mt-8 rounded-lg border border-wcc-gold-dim/30 bg-wcc-charcoal/60 p-5">
 					<h3 class="font-display text-lg text-wcc-cream">{f.food.heading}</h3>
 					<p class="mt-2 text-sm leading-relaxed text-wcc-muted">{f.food.description}</p>
-					<p class="mt-2 text-xs text-wcc-muted/80 italic">{f.food.note}</p>
 				</div>
 
+				<!-- CTA on hold until there's a real way to act on it, same reasoning as the
+				Screenings and Community CTAs (no backend / signup service yet).
 				<a
-					href="#newsletter"
+					href="mailto:leafstormpictures@yahoo.com?subject=Reserve%20a%20seat"
 					class="mt-8 inline-block rounded-full bg-wcc-gold px-8 py-3 text-sm font-medium tracking-wide text-wcc-ink uppercase transition hover:brightness-110"
 				>
 					Reserve Your Seat
 				</a>
+				-->
 			</div>
 		</div>
 	</div>
