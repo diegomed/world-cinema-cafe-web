@@ -10,6 +10,21 @@ test('landing page lists the second-Friday screening dates', async ({ page }) =>
 	await expect(schedule.getByText(/food to share/i)).toBeVisible();
 });
 
+test('the Five Cardinal Sins section states the WCC philosophy', async ({ page }) => {
+	await page.goto('/');
+
+	const sins = page.locator('#sins');
+	await expect(
+		sins.getByRole('heading', { name: 'The Five Cardinal Sins of Cinema', level: 2 })
+	).toBeVisible();
+	await expect(sins.getByText('The film is subtitled')).toBeVisible();
+	await expect(sins.getByText('The film is too slow')).toBeVisible();
+	await expect(sins.getByText('The film is too old')).toBeVisible();
+	await expect(sins.getByText('The film is too long')).toBeVisible();
+	await expect(sins.getByText('The film has no story')).toBeVisible();
+	await expect(sins.getByText('We plead guilty to all five.')).toBeVisible();
+});
+
 test('the Coming Next spotlight shows a film, its trailer, and shared-food details', async ({
 	page
 }) => {

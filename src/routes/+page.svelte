@@ -2,6 +2,7 @@
 	import Header from '$lib/components/Header.svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import About from '$lib/components/About.svelte';
+	import CardinalSins from '$lib/components/CardinalSins.svelte';
 	import Schedule from '$lib/components/Schedule.svelte';
 	import MonthlyFeature from '$lib/components/MonthlyFeature.svelte';
 	import Community from '$lib/components/Community.svelte';
@@ -30,6 +31,7 @@
 <main>
 	<Hero />
 	<About />
+	<CardinalSins />
 	<Schedule />
 	<MonthlyFeature />
 	<Community />
