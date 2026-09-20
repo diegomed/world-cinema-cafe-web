@@ -1,18 +1,5 @@
 import { expect, test } from '@playwright/test';
 
-// Covers the MonthlyFeature spotlight (film + trailer + food). Currently on hold
-// while Schedule.svelte is shown instead — re-enable alongside MonthlyFeature.
-// test('landing page shows the monthly feature with film and food', async ({ page }) => {
-// 	await page.goto('/');
-//
-// 	await expect(page.getByRole('heading', { name: 'World Cinema Cafe', level: 1 })).toBeVisible();
-//
-// 	const feature = page.locator('#feature');
-// 	await expect(feature.getByRole('heading', { name: 'Amélie' })).toBeVisible();
-// 	await expect(feature.getByText('Food for everyone')).toBeVisible();
-// 	await expect(feature.getByRole('button', { name: /play trailer/i })).toBeVisible();
-// });
-
 test('landing page lists the second-Friday screening dates', async ({ page }) => {
 	await page.goto('/');
 
@@ -21,4 +8,31 @@ test('landing page lists the second-Friday screening dates', async ({ page }) =>
 	const schedule = page.locator('#screenings');
 	await expect(schedule.getByText('Friday, December 11')).toBeVisible();
 	await expect(schedule.getByText(/food to share/i)).toBeVisible();
+});
+
+test('the Coming Next spotlight shows a film, its trailer, and shared-food details', async ({
+	page
+}) => {
+	await page.goto('/');
+
+	const feature = page.locator('#feature');
+	await expect(feature.getByText('Coming Next')).toBeVisible();
+	await expect(feature.getByRole('heading', { level: 2 })).toBeVisible();
+	await expect(feature.getByText('Food for everyone')).toBeVisible();
+
+	const playButton = feature.getByRole('button', { name: /play trailer/i });
+	await expect(playButton).toBeVisible();
+
+	await playButton.click();
+	await expect(feature.locator('iframe')).toBeVisible();
+});
+
+test('given the browser clock is set to October 9 2026, the Coming Next spotlight shows Cinema Paradiso', async ({
+	page
+}) => {
+	await page.clock.setFixedTime(new Date('2026-10-09T12:00:00'));
+	await page.goto('/');
+
+	const feature = page.locator('#feature');
+	await expect(feature.getByRole('heading', { name: 'Cinema Paradiso', level: 2 })).toBeVisible();
 });

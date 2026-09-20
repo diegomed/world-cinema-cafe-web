@@ -2,10 +2,8 @@
 	import Header from '$lib/components/Header.svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import About from '$lib/components/About.svelte';
-	// MonthlyFeature is on hold in favor of the Screenings list below, until we're
-	// ready to spotlight a specific film + trailer again. Kept intact for later.
-	// import MonthlyFeature from '$lib/components/MonthlyFeature.svelte';
 	import Schedule from '$lib/components/Schedule.svelte';
+	import MonthlyFeature from '$lib/components/MonthlyFeature.svelte';
 	import Community from '$lib/components/Community.svelte';
 	import Visit from '$lib/components/Visit.svelte';
 	// Newsletter is on hold until we pick a real signup service (no backend yet).
@@ -32,8 +30,8 @@
 <main>
 	<Hero />
 	<About />
-	<!-- <MonthlyFeature /> -->
 	<Schedule />
+	<MonthlyFeature />
 	<Community />
 	<Visit />
 	<!-- <Newsletter /> -->
