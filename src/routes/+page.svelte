@@ -13,12 +13,12 @@
 </script>
 
 <svelte:head>
-	<title>World Cinema Cafe. A Community Cinema</title>
+	<title>World Cinema Café</title>
 	<meta
 		name="description"
-		content="World Cinema Cafe is a community-organized cinema screening one film every second Friday, with food to share for all who attend."
+		content="World Cinema Café is a community-organized cinema screening one film every second Friday, with food to share for all who attend."
 	/>
-	<meta property="og:title" content="World Cinema Cafe" />
+	<meta property="og:title" content="World Cinema Café" />
 	<meta
 		property="og:description"
 		content="Building community through film. A community-organized cultural cinema."

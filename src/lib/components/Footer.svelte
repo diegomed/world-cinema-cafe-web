@@ -6,7 +6,7 @@
 	<div
 		class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-xs text-wcc-muted sm:flex-row"
 	>
-		<p class="font-display tracking-[0.2em] text-wcc-cream uppercase">World Cinema Cafe</p>
+		<p class="font-display tracking-[0.2em] text-wcc-cream uppercase">World Cinema Café</p>
 		<nav class="flex gap-6">
 			<a
 				href="https://instagram.com/worldcinemacafe"
@@ -15,10 +15,10 @@
 				class="transition-colors hover:text-wcc-gold">Instagram</a
 			>
 			<a
-				href="mailto:leafstormpictures@yahoo.com?subject=World%20Cinema%20Cafe"
+				href="mailto:leafstormpictures@yahoo.com?subject=World%20Cinema%20Caf%C3%A9"
 				class="transition-colors hover:text-wcc-gold">Contact</a
 			>
 		</nav>
-		<p>&copy; {year} World Cinema Cafe</p>
+		<p>&copy; {year} World Cinema Café</p>
 	</div>
 </footer>
