@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 test('landing page lists the second-Friday screening dates', async ({ page }) => {
 	await page.goto('/');
 
-	await expect(page.getByRole('heading', { name: 'World Cinema Cafe', level: 1 })).toBeVisible();
+	await expect(page.getByRole('heading', { name: 'World Cinema Café', level: 1 })).toBeVisible();
 
 	const schedule = page.locator('#screenings');
 	await expect(schedule.getByText('Friday, December 11')).toBeVisible();
@@ -27,14 +27,24 @@ test('the Coming Next spotlight shows a film, its trailer, and shared-food detai
 	await expect(feature.locator('iframe')).toBeVisible();
 });
 
-test('given the browser clock is set to October 9 2026, the Coming Next spotlight shows Cinema Paradiso', async ({
+test('given the browser clock is set to October 16 2026 (the screening day itself), the Coming Next spotlight still shows Cinema Paradiso', async ({
 	page
 }) => {
-	await page.clock.setFixedTime(new Date('2026-10-09T12:00:00'));
+	await page.clock.setFixedTime(new Date('2026-10-16T12:00:00'));
 	await page.goto('/');
 
 	const feature = page.locator('#feature');
 	await expect(feature.getByRole('heading', { name: 'Cinema Paradiso', level: 2 })).toBeVisible();
+});
+
+test('given the browser clock is set to October 17 2026 (the day after the screening), the Coming Next spotlight moves on to El Poeta', async ({
+	page
+}) => {
+	await page.clock.setFixedTime(new Date('2026-10-17T12:00:00'));
+	await page.goto('/');
+
+	const feature = page.locator('#feature');
+	await expect(feature.getByRole('heading', { name: 'El Poeta', level: 2 })).toBeVisible();
 });
 
 test('the footer links to the Instagram page and opens it in a new tab', async ({ page }) => {

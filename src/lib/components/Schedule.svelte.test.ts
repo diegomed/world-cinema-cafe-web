@@ -9,7 +9,7 @@ test('dims screening dates that have already passed and leaves upcoming ones at 
 	const screen = await render(Schedule, { today });
 
 	const past = screen.getByText('Friday, August 14');
-	const upcoming = screen.getByText('Friday, October 9');
+	const upcoming = screen.getByText('Friday, October 16');
 
 	await expect.element(past).toHaveClass('opacity-50');
 	await expect.element(upcoming).not.toHaveClass('opacity-50');

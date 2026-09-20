@@ -10,12 +10,12 @@ describe('getFeaturedFilm', () => {
 	});
 
 	it('treats the screening day itself as still upcoming', () => {
-		const today = new Date('2026-10-09'); // Cinema Paradiso's own screening day
+		const today = new Date('2026-10-16'); // Cinema Paradiso's own screening day
 		expect(getFeaturedFilm(films, today).title).toBe('Cinema Paradiso');
 	});
 
 	it('moves on to the following film the day after a screening', () => {
-		const today = new Date('2026-10-10'); // day after Cinema Paradiso
+		const today = new Date('2026-10-17'); // day after Cinema Paradiso
 		expect(getFeaturedFilm(films, today).title).toBe('El Poeta');
 	});
 
