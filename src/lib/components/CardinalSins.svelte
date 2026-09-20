@@ -28,5 +28,6 @@
 		<p class="mx-auto mt-10 max-w-xl font-display text-lg text-wcc-muted italic">
 			We plead guilty to all five.
 		</p>
+		<div class="mx-auto mt-8 h-px w-12 bg-wcc-gold-dim/50"></div>
 	</div>
 </section>
