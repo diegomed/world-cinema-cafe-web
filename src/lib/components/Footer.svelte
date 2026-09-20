@@ -8,14 +8,12 @@
 	>
 		<p class="font-display tracking-[0.2em] text-wcc-cream uppercase">World Cinema Cafe</p>
 		<nav class="flex gap-6">
-			<!-- Instagram link on hold until there's an actual page to link to.
 			<a
 				href="https://instagram.com/worldcinemacafe"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="transition-colors hover:text-wcc-gold">Instagram</a
 			>
-			-->
 			<a
 				href="mailto:leafstormpictures@yahoo.com?subject=World%20Cinema%20Cafe"
 				class="transition-colors hover:text-wcc-gold">Contact</a
