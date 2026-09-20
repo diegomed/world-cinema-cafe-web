@@ -21,7 +21,7 @@
 			<div class="rounded-lg border border-wcc-gold-dim/25 p-6">
 				<h3 class="font-display text-xl text-wcc-gold">Belong</h3>
 				<p class="mt-2 text-sm leading-relaxed text-wcc-muted">
-					Volunteer, bring something to share, or simply show up. Every role keeps WCC going.
+					Volunteer, bring something to share, or simply show up.
 				</p>
 			</div>
 		</div>

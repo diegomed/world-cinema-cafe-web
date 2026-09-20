@@ -23,8 +23,7 @@
 		<p class="mb-3 text-xs tracking-[0.4em] text-wcc-gold uppercase">Screenings</p>
 		<h2 class="font-display text-3xl text-wcc-cream sm:text-4xl">One film, every second Friday</h2>
 		<p class="mx-auto mt-4 max-w-xl leading-relaxed text-wcc-muted">
-			Films are announced closer to each date. There's always food to share before the lights go
-			down.
+			There's always food to share before the lights go down.
 		</p>
 
 		<ul class="mt-12 divide-y divide-wcc-gold-dim/20 border-y border-wcc-gold-dim/20 text-left">
