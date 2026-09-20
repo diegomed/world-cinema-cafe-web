@@ -36,3 +36,12 @@ test('given the browser clock is set to October 9 2026, the Coming Next spotligh
 	const feature = page.locator('#feature');
 	await expect(feature.getByRole('heading', { name: 'Cinema Paradiso', level: 2 })).toBeVisible();
 });
+
+test('the footer links to the Instagram page and opens it in a new tab', async ({ page }) => {
+	await page.goto('/');
+
+	const instagramLink = page.locator('footer').getByRole('link', { name: 'Instagram' });
+	await expect(instagramLink).toBeVisible();
+	await expect(instagramLink).toHaveAttribute('href', 'https://instagram.com/worldcinemacafe');
+	await expect(instagramLink).toHaveAttribute('target', '_blank');
+});
