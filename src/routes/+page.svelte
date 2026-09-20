@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Header from '$lib/components/Header.svelte';
 	import Hero from '$lib/components/Hero.svelte';
+	import Ticket from '$lib/components/Ticket.svelte';
 	import About from '$lib/components/About.svelte';
 	import CardinalSins from '$lib/components/CardinalSins.svelte';
 	import Schedule from '$lib/components/Schedule.svelte';
@@ -30,6 +31,7 @@
 <Header />
 <main>
 	<Hero />
+	<Ticket />
 	<About />
 	<CardinalSins />
 	<Schedule />

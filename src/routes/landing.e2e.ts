@@ -10,6 +10,14 @@ test('landing page lists the second-Friday screening dates', async ({ page }) =>
 	await expect(schedule.getByText(/food to share/i)).toBeVisible();
 });
 
+test('the invite ticket graphic is shown between the hero and about sections', async ({ page }) => {
+	await page.goto('/');
+
+	const invite = page.locator('#invite');
+	const ticketImage = invite.getByRole('img', { name: /World Cinema Café ticket/i });
+	await expect(ticketImage).toBeVisible();
+});
+
 test('the Five Cardinal Sins section states the WCC philosophy', async ({ page }) => {
 	await page.goto('/');
 
