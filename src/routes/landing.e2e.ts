@@ -78,3 +78,11 @@ test('the footer links to the Instagram page and opens it in a new tab', async (
 	await expect(instagramLink).toHaveAttribute('href', 'https://instagram.com/worldcinemacafe');
 	await expect(instagramLink).toHaveAttribute('target', '_blank');
 });
+
+test('the footer shows the fair use legal disclosure', async ({ page }) => {
+	await page.goto('/');
+
+	const footer = page.locator('footer');
+	await expect(footer.getByText(/fair use/i)).toBeVisible();
+	await expect(footer.getByText(/no\s+infringement\s+of\s+copyright/i)).toBeVisible();
+});

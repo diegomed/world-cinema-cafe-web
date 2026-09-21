@@ -21,4 +21,12 @@
 		</nav>
 		<p>&copy; {year} World Cinema Café</p>
 	</div>
+	<div class="mx-auto mt-8 max-w-2xl border-t border-wcc-gold-dim/20 pt-6">
+		<p class="text-center text-[11px] leading-relaxed text-wcc-muted">
+			The use of any copyrighted material is used under the guidelines of "fair use" in title 17
+			&amp; 107 of the united states code. Such material remains the copyright of the original
+			holder and is used here for the purposes of education, comparison and criticism only. No
+			infringement of copyright.
+		</p>
+	</div>
 </footer>
