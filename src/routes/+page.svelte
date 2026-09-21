@@ -1,11 +1,11 @@
 <script lang="ts">
 	import Header from '$lib/components/Header.svelte';
 	import Hero from '$lib/components/Hero.svelte';
+	import Ticket from '$lib/components/Ticket.svelte';
 	import About from '$lib/components/About.svelte';
-	// MonthlyFeature is on hold in favor of the Screenings list below, until we're
-	// ready to spotlight a specific film + trailer again. Kept intact for later.
-	// import MonthlyFeature from '$lib/components/MonthlyFeature.svelte';
+	import CardinalSins from '$lib/components/CardinalSins.svelte';
 	import Schedule from '$lib/components/Schedule.svelte';
+	import MonthlyFeature from '$lib/components/MonthlyFeature.svelte';
 	import Community from '$lib/components/Community.svelte';
 	import Visit from '$lib/components/Visit.svelte';
 	// Newsletter is on hold until we pick a real signup service (no backend yet).
@@ -15,12 +15,12 @@
 </script>
 
 <svelte:head>
-	<title>World Cinema Cafe. A Community Cinema</title>
+	<title>World Cinema Café</title>
 	<meta
 		name="description"
-		content="World Cinema Cafe is a community-organized cinema screening one film every second Friday, with food to share for all who attend."
+		content="World Cinema Café is a community-organized cinema screening one film every second Friday, with food to share for all who attend."
 	/>
-	<meta property="og:title" content="World Cinema Cafe" />
+	<meta property="og:title" content="World Cinema Café" />
 	<meta
 		property="og:description"
 		content="Building community through film. A community-organized cultural cinema."
@@ -31,9 +31,11 @@
 <Header />
 <main>
 	<Hero />
+	<Ticket />
 	<About />
-	<!-- <MonthlyFeature /> -->
+	<CardinalSins />
 	<Schedule />
+	<MonthlyFeature />
 	<Community />
 	<Visit />
 	<!-- <Newsletter /> -->

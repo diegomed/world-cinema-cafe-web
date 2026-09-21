@@ -1,13 +1,20 @@
 <script lang="ts">
 	import { SvelteDate } from 'svelte/reactivity';
 
-	import { screeningDates } from '$lib/data/schedule';
+	import { films } from '$lib/data/films';
 
-	const today = new SvelteDate();
-	today.setHours(0, 0, 0, 0);
+	// `today` is injectable so component tests can pin the date without
+	// relying on the system clock; production always uses the real time.
+	let { today }: { today?: Date } = $props();
+
+	const referenceDate = $derived.by(() => {
+		const date = today ? new SvelteDate(today) : new SvelteDate();
+		date.setHours(0, 0, 0, 0);
+		return date;
+	});
 
 	function isPast(iso: string) {
-		return new Date(iso) < today;
+		return new Date(iso) < referenceDate;
 	}
 </script>
 
@@ -16,21 +23,17 @@
 		<p class="mb-3 text-xs tracking-[0.4em] text-wcc-gold uppercase">Screenings</p>
 		<h2 class="font-display text-3xl text-wcc-cream sm:text-4xl">One film, every second Friday</h2>
 		<p class="mx-auto mt-4 max-w-xl leading-relaxed text-wcc-muted">
-			Films are announced closer to each date. There's always food to share before the lights go
-			down.
+			There's always food to share before the lights go down.
 		</p>
 
 		<ul class="mt-12 divide-y divide-wcc-gold-dim/20 border-y border-wcc-gold-dim/20 text-left">
-			{#each screeningDates as screening (screening.iso)}
+			{#each films as film (film.iso)}
 				<li class="flex items-center justify-between gap-4 py-4">
-					<span
-						class="font-display text-lg text-wcc-cream"
-						class:opacity-50={isPast(screening.iso)}
-					>
-						{screening.date}
+					<span class="font-display text-lg text-wcc-cream" class:opacity-50={isPast(film.iso)}>
+						{film.date}
 					</span>
 					<span class="text-xs tracking-wide text-wcc-muted uppercase">
-						{screening.film ?? (isPast(screening.iso) ? 'Past' : 'Coming soon...')}
+						{film.title}
 					</span>
 				</li>
 			{/each}
