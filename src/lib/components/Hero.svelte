@@ -7,9 +7,11 @@
 		style="background: radial-gradient(ellipse at top, var(--color-wcc-charcoal) 0%, var(--color-wcc-ink) 65%);"
 	></div>
 	<div class="relative z-10 max-w-3xl">
-		<p class="mb-4 text-xs tracking-[0.4em] text-wcc-gold uppercase">A Community Cinema</p>
+		<p class="mb-4 text-xs tracking-[0.4em] text-wcc-gold uppercase">
+			Conversation · Connection · Community
+		</p>
 		<h1 class="font-display text-5xl leading-tight text-wcc-cream sm:text-6xl md:text-7xl">
-			World Cinema Cafe
+			World Cinema Café
 		</h1>
 		<p class="mx-auto mt-6 max-w-xl font-display text-lg text-wcc-muted italic sm:text-xl">
 			Building community through film.

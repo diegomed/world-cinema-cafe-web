@@ -56,8 +56,8 @@ export const films: Film[] = [
 		director: 'Giuseppe Tornatore',
 		synopsis:
 			'A celebrated filmmaker looks back on his childhood in a small Sicilian village, and the projectionist who first opened his eyes to the magic of the movies. A love letter to moviegoing itself.',
-		date: 'Friday, October 9',
-		iso: '2026-10-09',
+		date: 'Friday, October 16',
+		iso: '2026-10-16',
 		time: 'Doors 6:00 PM · Film 6:30 PM',
 		trailerId: 'JMyVSD6OvO8',
 		food: {
