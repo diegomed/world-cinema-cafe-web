@@ -14,8 +14,13 @@ test('the invite ticket graphic is shown between the hero and about sections', a
 	await page.goto('/');
 
 	const invite = page.locator('#invite');
-	const ticketImage = invite.getByRole('img', { name: /World Cinema Café ticket/i });
+	const ticketImage = invite.getByRole('img', { name: /^World Cinema Café ticket/i });
 	await expect(ticketImage).toBeVisible();
+
+	const ticketBackImage = invite.getByRole('img', {
+		name: /Back of the World Cinema Café ticket/i
+	});
+	await expect(ticketBackImage).toBeVisible();
 });
 
 test('the Five Cardinal Sins section states the WCC philosophy', async ({ page }) => {
@@ -41,7 +46,7 @@ test('the Coming Next spotlight shows a film, its trailer, and shared-food detai
 	const feature = page.locator('#feature');
 	await expect(feature.getByText('Coming Next')).toBeVisible();
 	await expect(feature.getByRole('heading', { level: 2 })).toBeVisible();
-	await expect(feature.getByText('Food for everyone')).toBeVisible();
+	await expect(feature.getByText('Pickles, Pretzels & Popcorn!')).toBeVisible();
 
 	const playButton = feature.getByRole('button', { name: /play trailer/i });
 	await expect(playButton).toBeVisible();
