@@ -2,6 +2,7 @@
 	import { SvelteDate } from 'svelte/reactivity';
 
 	import { films } from '$lib/data/films';
+	import { parseLocalDate } from '$lib/data/local-date';
 
 	// `today` is injectable so component tests can pin the date without
 	// relying on the system clock; production always uses the real time.
@@ -14,7 +15,7 @@
 	});
 
 	function isPast(iso: string) {
-		return new Date(iso) < referenceDate;
+		return parseLocalDate(iso) < referenceDate;
 	}
 </script>
 
