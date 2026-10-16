@@ -8,7 +8,7 @@ test('shows the details of the film whose screening is coming up next', async ()
 	const screen = await render(MonthlyFeature, { today });
 
 	await expect.element(screen.getByRole('heading', { name: 'El Poeta', level: 2 })).toBeVisible();
-	await expect.element(screen.getByText('Food for everyone')).toBeVisible();
+	await expect.element(screen.getByText('Pickles, Pretzels & Popcorn!')).toBeVisible();
 	await expect.element(screen.getByRole('button', { name: /play trailer/i })).toBeVisible();
 });
 

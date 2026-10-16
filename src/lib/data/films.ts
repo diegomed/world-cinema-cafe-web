@@ -29,9 +29,9 @@ export const films: Film[] = [
 		time: 'Doors 6:00 PM · Film 6:30 PM',
 		trailerId: 'Fwb0c5zqsyM',
 		food: {
-			heading: 'Food for everyone',
+			heading: 'Pickles, Pretzels & Popcorn!',
 			description:
-				"There's always a shared meal before the film — simple and generous, and open to everyone in the room. What's served may vary, but no one leaves hungry."
+				"Help yourself before the film starts — pickles, pretzels, and popcorn, on the house. There's plenty to go around."
 		}
 	},
 	{
@@ -45,9 +45,9 @@ export const films: Film[] = [
 		time: 'Doors 6:00 PM · Film 6:30 PM',
 		trailerId: '555A7T_kmIc',
 		food: {
-			heading: 'Food for everyone',
+			heading: 'Pickles, Pretzels & Popcorn!',
 			description:
-				"There's always a shared meal before the film — simple and generous, and open to everyone in the room. What's served may vary, but no one leaves hungry."
+				"Help yourself before the film starts — pickles, pretzels, and popcorn, on the house. There's plenty to go around."
 		}
 	},
 	{
@@ -61,9 +61,9 @@ export const films: Film[] = [
 		time: 'Doors 6:00 PM · Film 6:30 PM',
 		trailerId: 'JMyVSD6OvO8',
 		food: {
-			heading: 'Food for everyone',
+			heading: 'Pickles, Pretzels & Popcorn!',
 			description:
-				"There's always a shared meal before the film — simple and generous, and open to everyone in the room. What's served may vary, but no one leaves hungry."
+				"Help yourself before the film starts — pickles, pretzels, and popcorn, on the house. There's plenty to go around."
 		}
 	},
 	{
@@ -77,9 +77,9 @@ export const films: Film[] = [
 		time: 'Doors 6:00 PM · Film 6:30 PM',
 		trailerId: 'L8Bia4f8l20',
 		food: {
-			heading: 'Food for everyone',
+			heading: 'Pickles, Pretzels & Popcorn!',
 			description:
-				"There's always a shared meal before the film — simple and generous, and open to everyone in the room. What's served may vary, but no one leaves hungry."
+				"Help yourself before the film starts — pickles, pretzels, and popcorn, on the house. There's plenty to go around."
 		}
 	},
 	{
@@ -93,9 +93,9 @@ export const films: Film[] = [
 		time: 'Doors 6:00 PM · Film 6:30 PM',
 		trailerId: 'MaaGPspHsaI',
 		food: {
-			heading: 'Food for everyone',
+			heading: 'Pickles, Pretzels & Popcorn!',
 			description:
-				"There's always a shared meal before the film — simple and generous, and open to everyone in the room. What's served may vary, but no one leaves hungry."
+				"Help yourself before the film starts — pickles, pretzels, and popcorn, on the house. There's plenty to go around."
 		}
 	}
 ];
