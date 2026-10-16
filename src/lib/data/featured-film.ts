@@ -1,4 +1,5 @@
 import type { Film } from './films';
+import { parseLocalDate } from './local-date';
 
 /**
  * The film to spotlight as "Coming Next": the first upcoming screening on or
@@ -11,6 +12,6 @@ export function getFeaturedFilm(films: Film[], today: Date): Film {
 	const startOfToday = new Date(today);
 	startOfToday.setHours(0, 0, 0, 0);
 
-	const upcoming = films.find((film) => new Date(film.iso) >= startOfToday);
+	const upcoming = films.find((film) => parseLocalDate(film.iso) >= startOfToday);
 	return upcoming ?? films[films.length - 1];
 }
