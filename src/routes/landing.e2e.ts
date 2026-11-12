@@ -65,14 +65,14 @@ test('given the browser clock is set to October 16 2026 (the screening day itsel
 	await expect(feature.getByRole('heading', { name: 'Cinema Paradiso', level: 2 })).toBeVisible();
 });
 
-test('given the browser clock is set to October 17 2026 (the day after the screening), the Coming Next spotlight moves on to El Poeta', async ({
+test('given the browser clock is set to October 17 2026 (the day after the screening), the Coming Next spotlight moves on to Un Poeta', async ({
 	page
 }) => {
 	await page.clock.setFixedTime(new Date('2026-10-17T12:00:00'));
 	await page.goto('/');
 
 	const feature = page.locator('#feature');
-	await expect(feature.getByRole('heading', { name: 'El Poeta', level: 2 })).toBeVisible();
+	await expect(feature.getByRole('heading', { name: 'Un Poeta', level: 2 })).toBeVisible();
 });
 
 test('the footer links to the Instagram page and opens it in a new tab', async ({ page }) => {
@@ -90,4 +90,29 @@ test('the footer shows the fair use legal disclosure', async ({ page }) => {
 	const footer = page.locator('footer');
 	await expect(footer.getByText(/fair use/i)).toBeVisible();
 	await expect(footer.getByText(/no\s+infringement\s+of\s+copyright/i)).toBeVisible();
+});
+
+// The page is prerendered at build time, so the HTML ships with whichever film
+// was "Coming Next" on the build day. Svelte doesn't repair a mismatched <img src>
+// during hydration, so the trailer thumbnail must still follow the visitor's date.
+test('given the browser clock has moved past the film featured at build time, the trailer thumbnail matches the film now shown', async ({
+	page
+}) => {
+	await page.clock.setFixedTime(new Date('2026-10-16T12:00:00'));
+	await page.goto('/');
+
+	const feature = page.locator('#feature');
+	await expect(feature.getByRole('heading', { name: 'Cinema Paradiso', level: 2 })).toBeVisible();
+	await expect(feature.locator('img')).toHaveAttribute('src', /\/vi\/JMyVSD6OvO8\//);
+});
+
+test('given the browser clock is a month after the build-time film, the trailer thumbnail moves on too', async ({
+	page
+}) => {
+	await page.clock.setFixedTime(new Date('2026-12-01T12:00:00'));
+	await page.goto('/');
+
+	const feature = page.locator('#feature');
+	await expect(feature.getByRole('heading', { name: 'The First of May', level: 2 })).toBeVisible();
+	await expect(feature.locator('img')).toHaveAttribute('src', /\/vi\/MaaGPspHsaI\//);
 });

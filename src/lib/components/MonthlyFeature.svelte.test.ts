@@ -4,19 +4,20 @@ import { expect, test } from 'vitest';
 import MonthlyFeature from './MonthlyFeature.svelte';
 
 test('shows the details of the film whose screening is coming up next', async () => {
-	const today = new Date('2026-10-17'); // day after Cinema Paradiso screens
+	const today = new Date('2026-10-17T12:00:00'); // day after Cinema Paradiso screens
 	const screen = await render(MonthlyFeature, { today });
 
-	await expect.element(screen.getByRole('heading', { name: 'El Poeta', level: 2 })).toBeVisible();
+	await expect.element(screen.getByRole('heading', { name: 'Un Poeta', level: 2 })).toBeVisible();
+	await expect.element(screen.getByText('A Poet', { exact: true })).toBeVisible();
 	await expect.element(screen.getByText('Pickles, Pretzels & Popcorn!')).toBeVisible();
 	await expect.element(screen.getByRole('button', { name: /play trailer/i })).toBeVisible();
 });
 
 test('clicking the trailer button swaps the thumbnail for a playing embed', async () => {
-	const today = new Date('2026-10-17');
+	const today = new Date('2026-10-17T12:00:00');
 	const screen = await render(MonthlyFeature, { today });
 
 	await screen.getByRole('button', { name: /play trailer/i }).click();
 
-	await expect.element(screen.getByTitle('El Poeta trailer')).toBeVisible();
+	await expect.element(screen.getByTitle('Un Poeta trailer')).toBeVisible();
 });
