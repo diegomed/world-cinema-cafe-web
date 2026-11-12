@@ -21,6 +21,9 @@
 			</div>
 			<div>
 				<h2 class="font-display text-4xl text-wcc-cream">{f.title}</h2>
+				{#if f.englishTitle}
+					<p class="mt-1 font-display text-lg text-wcc-cream/70 italic">{f.englishTitle}</p>
+				{/if}
 				<p class="mt-1 text-sm text-wcc-muted">{f.director} · {f.year}</p>
 				<p class="mt-6 leading-relaxed text-wcc-cream/90">{f.synopsis}</p>
 				<dl class="mt-6 space-y-1 text-sm text-wcc-muted">

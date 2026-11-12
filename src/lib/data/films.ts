@@ -1,5 +1,7 @@
 export type Film = {
 	title: string;
+	/** English title, shown alongside the original when the film isn't in English. */
+	englishTitle?: string;
 	year: number;
 	director: string;
 	synopsis: string;
@@ -67,7 +69,8 @@ export const films: Film[] = [
 		}
 	},
 	{
-		title: 'El Poeta',
+		title: 'Un Poeta',
+		englishTitle: 'A Poet',
 		year: 2025,
 		director: 'Simón Mesa Soto',
 		synopsis:

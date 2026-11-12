@@ -1,6 +1,20 @@
 <script lang="ts">
 	let { videoId, title }: { videoId: string; title: string } = $props();
 	let playing = $state(false);
+
+	const thumbnailUrl = $derived(`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`);
+
+	// The page is prerendered, so its HTML carries the thumbnail of whichever film
+	// was "Coming Next" on the build day. Svelte deliberately doesn't repair a
+	// mismatched `src` while hydrating, so set it explicitly once we're in the
+	// browser — otherwise the old film's thumbnail sticks around after the date
+	// moves on, even though the title, synopsis and trailer update.
+	let thumbnail: HTMLImageElement | undefined = $state();
+	$effect(() => {
+		if (thumbnail && thumbnail.getAttribute('src') !== thumbnailUrl) {
+			thumbnail.src = thumbnailUrl;
+		}
+	});
 </script>
 
 <div
@@ -22,7 +36,8 @@
 			onclick={() => (playing = true)}
 		>
 			<img
-				src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
+				bind:this={thumbnail}
+				src={thumbnailUrl}
 				alt=""
 				class="h-full w-full object-cover opacity-70 transition group-hover:opacity-85"
 				loading="lazy"
