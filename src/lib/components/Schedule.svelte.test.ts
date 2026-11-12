@@ -4,7 +4,7 @@ import { expect, test } from 'vitest';
 import Schedule from './Schedule.svelte';
 
 test('dims screening dates that have already passed and leaves upcoming ones at full opacity', async () => {
-	const today = new Date('2026-09-15'); // after The Old Oak, before Cinema Paradiso
+	const today = new Date('2026-09-15T12:00:00'); // after The Old Oak, before Cinema Paradiso
 
 	const screen = await render(Schedule, { today });
 
@@ -16,11 +16,11 @@ test('dims screening dates that have already passed and leaves upcoming ones at 
 });
 
 test('lists the correct film title for every screening date', async () => {
-	const today = new Date('2026-09-15');
+	const today = new Date('2026-09-15T12:00:00');
 
 	const screen = await render(Schedule, { today });
 
-	await expect.element(screen.getByText('El Poeta')).toBeVisible();
+	await expect.element(screen.getByText('Un Poeta')).toBeVisible();
 	await expect.element(screen.getByText('The First of May')).toBeVisible();
 });
 
